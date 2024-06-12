@@ -1,0 +1,53 @@
+configurations:
+  - sources:
+      include:
+        - Sources/
+      exclude:
+        - Sources/Spark___COMPONENT_NAME___Testing/
+        - Sources/Spark___COMPONENT_NAME___SnapshotTesting/
+    templates:
+      - .sourcery/template/SparkAutoMockable.stencil
+    output: Sources/Spark___COMPONENT_NAME___Testing/Generated/AutoMockable.generated.swift
+    args:
+      autoMockableImports: [Combine, SparkTheming, SparkTheme]
+      autoMockableSPIImports: [SparkCommon, SparkCommonTesting, SparkThemingTesting]
+      autoMockableTestableImports: [Spark___COMPONENT_NAME___]
+  - sources:
+      include:
+        - Sources/
+      exclude:
+        - Sources/Spark___COMPONENT_NAME___Testing/
+        - Sources/Spark___COMPONENT_NAME___SnapshotTesting/
+    templates:
+      - .sourcery/template/SparkAutoMockTest.stencil
+    output: Sources/Spark___COMPONENT_NAME___Testing/Generated/AutoMockTest.generated.swift
+    args:
+      autoMockableImports: [Combine, SparkTheming]
+      autoMockableSPIImports: [SparkCommon, SparkCommonTestin, SparkThemingTestingg]
+      autoMockableTestableImports: [Spark___COMPONENT_NAME___]
+  - sources:
+      include:
+        - Sources/
+      exclude:
+        - Sources/Spark___COMPONENT_NAME___Testing/
+        - Sources/Spark___COMPONENT_NAME___SnapshotTesting/
+    templates:
+      - .sourcery/template/SparkAutoPublisherTest.stencil
+    output: Sources/Spark___COMPONENT_NAME___Testing/Generated/AutoPublisherTest.generated.swift
+    args:
+      autoMockableImports: [Combine, SparkTheming]
+      autoMockableSPIImports: [SparkCommon, SparkCommonTesting, SparkThemingTesting]
+      autoMockableTestableImports: [Spark___COMPONENT_NAME___]
+  - sources:
+      include:
+        - Sources/
+      exclude:
+        - Sources/Spark___COMPONENT_NAME___Testing/
+        - Sources/Spark___COMPONENT_NAME___SnapshotTesting/
+    templates:
+      - .sourcery/template/SparkAutoViewModelStub.stencil
+    output: Sources/Spark___COMPONENT_NAME___Testing/Generated/AutoViewModelStub.generated.swift
+    args:
+      autoMockableImports: [Combine, SparkTheming]
+      autoMockableSPIImports: [SparkCommon, SparkCommonTesting, SparkThemingTesting]
+      autoMockableTestableImports: [Spark___COMPONENT_NAME___]
