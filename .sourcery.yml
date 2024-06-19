@@ -3,51 +3,51 @@ configurations:
       include:
         - Sources/
       exclude:
-        - Sources/Spark___COMPONENT_NAME___Testing/
-        - Sources/Spark___COMPONENT_NAME___SnapshotTesting/
+        - Sources/SparkRadioButtonTesting/
+        - Sources/SparkRadioButtonSnapshotTesting/
     templates:
-      - .sourcery/template/SparkAutoMockable.stencil
-    output: Sources/Spark___COMPONENT_NAME___Testing/Generated/AutoMockable.generated.swift
+      - ../spark-ios-common/.sourcery/template/SparkAutoMockable.stencil
+    output: Sources/SparkRadioButtonTesting/Generated/AutoMockable.generated.swift
     args:
-      autoMockableImports: [Combine, SparkTheming, SparkTheme]
+      autoMockableImports: [Combine, SparkTheming]
       autoMockableSPIImports: [SparkCommon, SparkCommonTesting, SparkThemingTesting]
-      autoMockableTestableImports: [Spark___COMPONENT_NAME___]
+      autoMockableTestableImports: [SparkRadioButton]
   - sources:
       include:
         - Sources/
       exclude:
-        - Sources/Spark___COMPONENT_NAME___Testing/
-        - Sources/Spark___COMPONENT_NAME___SnapshotTesting/
+        - Sources/SparkRadioButtonTesting/
+        - Sources/SparkRadioButtonSnapshotTesting/
     templates:
-      - .sourcery/template/SparkAutoMockTest.stencil
-    output: Sources/Spark___COMPONENT_NAME___Testing/Generated/AutoMockTest.generated.swift
+      - ../spark-ios-common/.sourcery/template/SparkAutoMockTest.stencil
+    output: Sources/SparkRadioButtonTesting/Generated/AutoMockTest.generated.swift
     args:
       autoMockableImports: [Combine, SparkTheming]
-      autoMockableSPIImports: [SparkCommon, SparkCommonTestin, SparkThemingTestingg]
-      autoMockableTestableImports: [Spark___COMPONENT_NAME___]
+      autoMockableSPIImports: [SparkCommon, SparkCommonTesting, SparkThemingTesting]
+      autoMockableTestableImports: [SparkRadioButton]
   - sources:
       include:
         - Sources/
       exclude:
-        - Sources/Spark___COMPONENT_NAME___Testing/
-        - Sources/Spark___COMPONENT_NAME___SnapshotTesting/
+        - Sources/SparkRadioButtonTesting/
+        - Sources/SparkRadioButtonSnapshotTesting/
     templates:
-      - .sourcery/template/SparkAutoPublisherTest.stencil
-    output: Sources/Spark___COMPONENT_NAME___Testing/Generated/AutoPublisherTest.generated.swift
+      - ../spark-ios-common/.sourcery/template/SparkAutoPublisherTest.stencil
+    output: Sources/SparkRadioButtonTesting/Generated/AutoPublisherTest.generated.swift
     args:
       autoMockableImports: [Combine, SparkTheming]
       autoMockableSPIImports: [SparkCommon, SparkCommonTesting, SparkThemingTesting]
-      autoMockableTestableImports: [Spark___COMPONENT_NAME___]
+      autoMockableTestableImports: [SparkRadioButton]
   - sources:
       include:
         - Sources/
       exclude:
-        - Sources/Spark___COMPONENT_NAME___Testing/
-        - Sources/Spark___COMPONENT_NAME___SnapshotTesting/
+        - Sources/SparkRadioButtonTesting/
+        - Sources/SparkRadioButtonSnapshotTesting/
     templates:
-      - .sourcery/template/SparkAutoViewModelStub.stencil
-    output: Sources/Spark___COMPONENT_NAME___Testing/Generated/AutoViewModelStub.generated.swift
+      - ../spark-ios-common/.sourcery/template/SparkAutoViewModelStub.stencil
+    output: Sources/SparkRadioButtonTesting/Generated/AutoViewModelStub.generated.swift
     args:
       autoMockableImports: [Combine, SparkTheming]
       autoMockableSPIImports: [SparkCommon, SparkCommonTesting, SparkThemingTesting]
-      autoMockableTestableImports: [Spark___COMPONENT_NAME___]
+      autoMockableTestableImports: [SparkRadioButton]
