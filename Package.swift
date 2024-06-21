@@ -43,7 +43,8 @@ let package = Package(
                     name: "SparkTheming",
                     package: "spark-ios-theming"
                 )
-            ]
+            ],
+            path: "Sources/Core"
         ),
         .target(
             name: "SparkRadioButtonTesting",
@@ -65,7 +66,8 @@ let package = Package(
                     name: "SparkTheme",
                     package: "spark-ios-theming"
                 )
-            ]
+            ],
+            path: "Sources/Testing"
         ),
         .testTarget(
             name: "SparkRadioButtonUnitTests",
@@ -80,7 +82,8 @@ let package = Package(
                     name: "SparkThemingTesting",
                     package: "spark-ios-theming"
                 )
-            ]
+            ],
+            path: "Tests/UnitTests"
         ),
         .testTarget(
             name: "SparkRadioButtonSnapshotTests",
@@ -91,7 +94,8 @@ let package = Package(
                     name: "SparkCommonSnapshotTesting",
                     package: "spark-ios-common"
                 ),
-            ]
+            ],
+            path: "Tests/SnapshotTests"
         ),
     ]
 )

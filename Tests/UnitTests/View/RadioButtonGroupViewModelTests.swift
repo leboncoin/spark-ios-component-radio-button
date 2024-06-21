@@ -63,7 +63,6 @@ final class RadioButtonGroupViewModelTests: XCTestCase {
         let expectation = expectation(description: "Wait for sublabel color to be published")
         expectation.expectedFulfillmentCount = 2
 
-
         sut.$sublabelColor.sink { _ in
             expectation.fulfill()
         }
@@ -80,13 +79,11 @@ final class RadioButtonGroupViewModelTests: XCTestCase {
         useCase.executeWithColorsAndIntentReturnValue = ColorTokenGeneratedMock.random()
         let theme = ThemeGeneratedMock.mocked()
 
-        let sut = RadioButtonGroupViewModel(
+        return .init(
             theme: theme,
             intent: intent,
             content: (),
             useCase: useCase
         )
-
-        return sut
     }
 }
