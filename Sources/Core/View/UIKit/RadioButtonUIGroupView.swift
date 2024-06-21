@@ -369,7 +369,7 @@ public final class RadioButtonUIGroupView<ID: Equatable & Hashable & CustomStrin
     private func createRadioButtonViews(
         items: [RadioButtonUIItem<ID>]) -> [RadioButtonUIView<ID>]
     {
-        let radioButtonViews = items.map {
+        return items.map {
             let radioButtonView = RadioButtonUIView(
                 theme: self.theme,
                 intent: self.viewModel.intent,
@@ -389,7 +389,6 @@ public final class RadioButtonUIGroupView<ID: Equatable & Hashable & CustomStrin
 
             return radioButtonView
         }
-        return radioButtonViews
     }
 
     private func setupConstraints() {

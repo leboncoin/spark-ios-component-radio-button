@@ -327,7 +327,6 @@ public final class RadioButtonUIView<ID: Equatable & CustomStringConvertible>: U
         toggleViewTrailingConstraint?.constant = self.haloWidth
     }
 
-
     // MARK: - Private Functions
 
     private func setupSubscriptions() {
