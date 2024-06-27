@@ -10,7 +10,7 @@
 @_spi(SI_SPI) @testable import SparkRadioButtonTesting
 @_spi(SI_SPI) import SparkCommon
 @_spi(SI_SPI) import SparkCommonTesting
-import SparkThemingTesting
+@_spi(SI_SPI) import SparkThemingTesting
 import XCTest
 
 final class RadioButtonGetAttributesUseCaseTests: TestCase {

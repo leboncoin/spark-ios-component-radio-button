@@ -8,7 +8,7 @@
 
 @testable import SparkRadioButton
 import SparkTheming
-import SparkThemingTesting
+@_spi(SI_SPI) import SparkThemingTesting
 import SwiftUI
 import XCTest
 
