@@ -9,7 +9,7 @@
 import Combine
 @testable import SparkRadioButton
 @_spi(SI_SPI) @testable import SparkRadioButtonTesting
-import SparkThemingTesting
+@_spi(SI_SPI) import SparkThemingTesting
 import XCTest
 
 final class RadioButtonGroupViewModelTests: XCTestCase {

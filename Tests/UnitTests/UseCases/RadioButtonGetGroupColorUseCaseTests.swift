@@ -7,7 +7,7 @@
 //
 
 @testable import SparkRadioButton
-import SparkThemingTesting
+@_spi(SI_SPI) import SparkThemingTesting
 import XCTest
 
 final class RadioButtonGetGroupColorUseCaseTests: XCTestCase {
