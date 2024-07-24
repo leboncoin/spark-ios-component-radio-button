@@ -116,6 +116,7 @@ public struct RadioButtonView<ID: Equatable & CustomStringConvertible>: View {
             self.viewModel.set(selected: true)
         }, label: {
             self.buttonAndLabel()
+                .contentShape(Rectangle())
         })
         .opacity(self.viewModel.opacity)
         .buttonStyle(PressedButtonStyle(isPressed: self.$isPressed))
@@ -156,12 +157,13 @@ public struct RadioButtonView<ID: Equatable & CustomStringConvertible>: View {
             HStack(alignment: .top, spacing: self.spacing) {
                 self.radioButton()
                 self.label()
+                Spacer(minLength: 0)
             }
         } else  {
             HStack(alignment: .top, spacing: 0) {
                 self.label()
 
-                Spacer()
+                Spacer(minLength: 0)
 
                 self.radioButton()
                     .padding(.leading, viewModel.spacing)
