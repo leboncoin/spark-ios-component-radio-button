@@ -66,15 +66,22 @@ public final class RadioButtonUIView<ID: Equatable & CustomStringConvertible>: U
     public override var isEnabled: Bool {
         didSet {
             self.viewModel.set(enabled: self.isEnabled)
+            if self.isEnabled {
+                self.accessibilityTraits.remove(.notEnabled)
+            } else {
+                self.accessibilityTraits.insert(.notEnabled)
+            }
         }
     }
 
     public override var isSelected: Bool {
-        get {
-            return self.viewModel.state.isSelected
-        }
-        set {
-            self.viewModel.set(selected: newValue)
+        didSet {
+            self.viewModel.set(selected: self.isSelected)
+            if self.isSelected {
+                self.accessibilityTraits.insert(.selected)
+            } else {
+                self.accessibilityTraits.remove(.selected)
+            }
         }
     }
 
@@ -193,6 +200,11 @@ public final class RadioButtonUIView<ID: Equatable & CustomStringConvertible>: U
     private var toggleViewTrailingConstraint: NSLayoutConstraint?
     private var labelPositionConstraints: [NSLayoutConstraint] = []
 
+    public override var accessibilityLabel: String? {
+        get { return self.textLabel.accessibilityLabel }
+        set { self.textLabel.accessibilityLabel = newValue }
+    }
+
     // MARK: - Initialization
 
     /// The radio button component takes a theme, an id, a label and a binding
@@ -289,6 +301,12 @@ public final class RadioButtonUIView<ID: Equatable & CustomStringConvertible>: U
 
         super.init(frame: CGRect.zero)
 
+        self.isSelected = self.viewModel.state.isSelected
+
+        self.accessibilityTraits.insert(.button)
+        self.isAccessibilityElement = true
+        self.accessibilityValue = self.viewModel.id.description
+
         self.arrangeViews()
         self.setupButtonActions()
         self.updateViewAttributes()
@@ -303,6 +321,7 @@ public final class RadioButtonUIView<ID: Equatable & CustomStringConvertible>: U
     // MARK: - Public Functions
     public func toggleNeedsRedisplay() {
         self.viewModel.updateViewAttributes()
+        self.isSelected = self.viewModel.state.isSelected
         self.updateColors(self.viewModel.colors)
         self.updateLabel()
         self.toggleView.setNeedsDisplay()
