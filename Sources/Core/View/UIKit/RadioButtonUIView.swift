@@ -316,7 +316,7 @@ public final class RadioButtonUIView<ID: Equatable & CustomStringConvertible>: U
         self._textLabelTopSpacing.update(traitCollection: self.traitCollection)
         self._haloWidth.update(traitCollection: self.traitCollection)
 
-        toggleViewSpacingConstraint?.constant = -self.spacing
+        toggleViewSpacingConstraint?.constant = -self.spacing + self.haloWidth
         toggleViewWidthConstraint?.constant = self.toggleSize
         toggleViewHeightConstraint?.constant = self.toggleSize
 

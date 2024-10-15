@@ -441,7 +441,7 @@ public final class RadioButtonUIGroupView<ID: Equatable & Hashable & CustomStrin
             previousLayoutTopAnchor = self.supplementaryLabel.bottomAnchor
         }
 
-        constraints.append(previousLayoutTopAnchor.constraint(equalTo: self.bottomAnchor))
+        constraints.append(previousLayoutTopAnchor.constraint(lessThanOrEqualTo: self.bottomAnchor))
 
         self.allConstraints = constraints
         NSLayoutConstraint.activate(constraints)
@@ -480,7 +480,7 @@ public final class RadioButtonUIGroupView<ID: Equatable & Hashable & CustomStrin
             }
             previousLayoutLeadingAnchor = radioButtonView.trailingAnchor
         }
-        constraints.append(previousLayoutLeadingAnchor.constraint(equalTo: self.trailingAnchor))
+        constraints.append(previousLayoutLeadingAnchor.constraint(greaterThanOrEqualTo: self.trailingAnchor))
 
         var bottomAnchor: NSLayoutYAxisAnchor = self.bottomAnchor
         var labelSpacing: CGFloat = 0
