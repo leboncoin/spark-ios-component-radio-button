@@ -422,8 +422,12 @@ public final class RadioButtonUIView<ID: Equatable & CustomStringConvertible>: U
             equalTo: self.toggleView.topAnchor, constant: self.textLabelTopSpacing)
         let toggleViewTopConstraint = self.toggleView.topAnchor.constraint(
             equalTo: self.topAnchor, constant: -(self.haloWidth))
-        let bottomViewConstraint = self.textLabel.bottomAnchor.constraint(
-            lessThanOrEqualTo: self.bottomAnchor, constant: 0)
+        let labelBottomViewConstraint = self.textLabel.bottomAnchor.constraint(
+            lessThanOrEqualTo: self.bottomAnchor)
+        let toggleViewBottomConstraint = self.toggleView.bottomAnchor.constraint(
+            lessThanOrEqualTo: self.bottomAnchor,
+            constant: self.haloWidth
+        )
 
         let labelPositionConstraints = calculatePositionConstraints()
 
@@ -432,8 +436,9 @@ public final class RadioButtonUIView<ID: Equatable & CustomStringConvertible>: U
             toggleViewHeightConstraint,
             toggleViewSpacingConstraint,
             toggleViewTopConstraint,
+            toggleViewBottomConstraint,
             labelViewTopConstraint,
-            bottomViewConstraint
+            labelBottomViewConstraint
         ] + labelPositionConstraints
 
         NSLayoutConstraint.activate(constraints)

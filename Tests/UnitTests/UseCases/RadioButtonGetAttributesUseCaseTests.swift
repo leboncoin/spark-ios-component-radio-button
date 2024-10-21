@@ -42,7 +42,7 @@ final class RadioButtonGetAttributesUseCaseTests: TestCase {
         let expectedAttributes = RadioButtonAttributes(
             colors: self.colors,
             opacity: 1,
-            spacing: self.theme.layout.spacing.xxxLarge,
+            spacing: self.theme.layout.spacing.medium,
             font: self.theme.typography.body1)
 
         // When

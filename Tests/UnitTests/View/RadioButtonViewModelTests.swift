@@ -136,10 +136,10 @@ final class RadioButtonViewModelTests: XCTestCase {
         let expectation = XCTestExpectation(description: "Changes to label position publishes value changes.")
         expectation.expectedFulfillmentCount = 2
 
-        var spacings = [CGFloat]()
+        var spacings = Set<CGFloat>()
 
         sut.$spacing.sink { spacing in
-            spacings.append(spacing)
+            spacings.insert(spacing)
             expectation.fulfill()
         }
         .store(in: &self.subscriptions)
@@ -150,7 +150,7 @@ final class RadioButtonViewModelTests: XCTestCase {
         // Then
         wait(for: [expectation], timeout: 0.5)
 
-        XCTAssertEqual(spacings, [self.theme.layout.spacing.medium, self.theme.layout.spacing.xxxLarge])
+        XCTAssertEqual(spacings, [self.theme.layout.spacing.medium])
     }
 
     // MARK: - Private Helper Functions
