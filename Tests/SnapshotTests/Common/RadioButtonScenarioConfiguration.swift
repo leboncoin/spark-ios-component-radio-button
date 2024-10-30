@@ -18,11 +18,13 @@ struct RadioButtonScenarioConfiguration: CustomStringConvertible {
     let radioButtons: [SingleRadioButtonConfiguration]
     let groupLayout: RadioButtonGroupLayout
     let labelAlignment: RadioButtonLabelAlignment
+    let hasExpendedContainer: Bool
+    let showTapArea: Bool
     let modes: [ComponentSnapshotTestMode]
     let sizes: [UIContentSizeCategory]
 
     var testName: String {
-        return "\(self)-\(self.intent)-\(self.groupLayout)-\(self.labelAlignment)"
+        return "\(self)-\(self.intent)-\(self.groupLayout)-\(self.labelAlignment)-\(self.showTapArea ? "withTapArea" : "withoutTapArea")-\(self.hasExpendedContainer ? "expendedContainer" : "defaultContainer")"
     }
 
     struct SingleRadioButtonConfiguration {

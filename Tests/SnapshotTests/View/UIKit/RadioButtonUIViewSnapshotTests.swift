@@ -31,6 +31,14 @@ final class RadioButtonUIViewSnapshotTests: UIKitComponentSnapshotTestCase  {
         self._test(.test3)
     }
 
+    func test4() {
+        self._test(.test4)
+    }
+
+    func test5() {
+        self._test(.test5)
+    }
+
     private func _test(_ scenario: RadioButtonScenario) {
         for configuration in scenario.configurations {
             let view = RadioButtonUIGroupView(
@@ -45,6 +53,9 @@ final class RadioButtonUIViewSnapshotTests: UIKitComponentSnapshotTestCase  {
             )
             view.translatesAutoresizingMaskIntoConstraints = false
             for (index, radioButton) in configuration.radioButtons.enumerated() {
+                if configuration.showTapArea {
+                    view.radioButtonViews[index].backgroundColor = .green
+                }
                 view.radioButtonViews[index].isEnabled = radioButton.isEnabled
                 view.radioButtonViews[index].isHighlighted = radioButton.isHighlighted
             }
@@ -60,7 +71,12 @@ final class RadioButtonUIViewSnapshotTests: UIKitComponentSnapshotTestCase  {
                 view.centerYAnchor.constraint(equalTo: containerView.centerYAnchor),
             ])
 
-            if configuration.groupLayout == .vertical {
+            if configuration.hasExpendedContainer {
+                NSLayoutConstraint.activate([
+                    containerView.widthAnchor.constraint(equalToConstant: 1000),
+                    containerView.heightAnchor.constraint(equalToConstant: 1000)
+                ])
+            } else if configuration.groupLayout == .vertical {
                 containerView.widthAnchor.constraint(equalToConstant: 300).isActive = true
             }
 
