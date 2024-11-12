@@ -38,12 +38,11 @@ public struct RadioButtonGroupView<ID: Equatable & Hashable & CustomStringConver
     private let items: [RadioButtonItem<ID>]
     private let groupLayout: RadioButtonGroupLayout
     private let labelAlignment: RadioButtonLabelAlignment
-    private let viewModel: RadioButtonGroupViewModel<RadioButtonGroupContent>
+    private let viewModel: RadioButtonGroupViewModel
 
     // MARK: - Local properties
 
     @ScaledMetric private var spacing: CGFloat
-    @ScaledMetric private var titleSpacing: CGFloat
 
     // MARK: - Initialization
 
@@ -59,8 +58,7 @@ public struct RadioButtonGroupView<ID: Equatable & Hashable & CustomStringConver
                 items: [RadioButtonItem<ID>],
                 radioButtonLabelPosition: RadioButtonLabelPosition = .right,
                 groupLayout: RadioButtonGroupLayout = .vertical,
-                state: RadioButtonGroupState = .enabled,
-                supplementaryLabel: String? = nil
+                state: RadioButtonGroupState = .enabled
     ) {
         self.init(theme: theme,
                   intent: state.intent,
@@ -69,7 +67,6 @@ public struct RadioButtonGroupView<ID: Equatable & Hashable & CustomStringConver
                   labelAlignment: radioButtonLabelPosition.alignment,
                   groupLayout: groupLayout
         )
-        self.viewModel.content = RadioButtonGroupContent(title: title, supplementaryText: supplementaryLabel)
         self.viewModel.isDisabled = state == .disabled
     }
 
@@ -89,9 +86,8 @@ public struct RadioButtonGroupView<ID: Equatable & Hashable & CustomStringConver
         self.selectedID = selectedID
         self.groupLayout = groupLayout
         self.labelAlignment = labelAlignment
-        self.viewModel = RadioButtonGroupViewModel(theme: theme, intent: intent, content: .init())
+        self.viewModel = RadioButtonGroupViewModel(theme: theme, intent: intent)
         self._spacing = ScaledMetric(wrappedValue: self.viewModel.spacing)
-        self._titleSpacing = ScaledMetric(wrappedValue: self.viewModel.labelSpacing)
     }
 
     // MARK: - Content
@@ -99,20 +95,10 @@ public struct RadioButtonGroupView<ID: Equatable & Hashable & CustomStringConver
     public var body: some View {
 
         VStack(alignment: .leading, spacing: 0) {
-            if let title = self.viewModel.content.title {
-                radioButtonTitle(title)
-                    .padding(.bottom, self.titleSpacing)
-            }
-
             if groupLayout == .vertical {
                 radioButtonItems
             } else {
                 horizontalRadioButtons
-            }
-
-            if let supplementaryLabel = self.viewModel.content.supplementaryText {
-                radioButtonSublabel(supplementaryLabel)
-                    .padding(.top, self.titleSpacing)
             }
         }
     }
@@ -120,22 +106,6 @@ public struct RadioButtonGroupView<ID: Equatable & Hashable & CustomStringConver
     public func theme(_ theme: Theme) -> Self {
         self.viewModel.theme = theme
         return self
-    }
-
-    @ViewBuilder
-    private func radioButtonTitle(_ title: String) -> some View {
-        Text(title)
-            .fixedSize(horizontal: false, vertical: true)
-            .font(self.viewModel.titleFont.font)
-            .foregroundColor(self.viewModel.titleColor.color)
-            .accessibilityIdentifier(RadioButtonAccessibilityIdentifier.radioButtonGroupTitle)
-    }
-
-    @ViewBuilder
-    private func radioButtonSublabel(_ label: String) -> some View {
-        Text(label)
-            .font(self.viewModel.sublabelFont.font)
-            .foregroundColor(self.viewModel.sublabelColor.color)
     }
 
     @ViewBuilder
@@ -167,17 +137,5 @@ public struct RadioButtonGroupView<ID: Equatable & Hashable & CustomStringConver
         } else {
             return self.viewModel.spacing
         }
-    }
-
-    public func title(_ title: String) -> Self {
-        let content = self.viewModel.content.update(\.title, value: title)
-        self.viewModel.content = content
-        return self
-    }
-
-    public func supplementaryText(_ supplementaryText: String) -> Self {
-        let content = self.viewModel.content.update(\.supplementaryText, value: supplementaryText)
-        self.viewModel.content = content
-        return self
     }
 }

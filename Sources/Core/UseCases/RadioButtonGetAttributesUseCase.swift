@@ -33,19 +33,8 @@ struct RadioButtonGetAttributesUseCase: RadioButtonGetAttributesUseCaseable {
                 theme: theme,
                 intent: intent,
                 isSelected: state.isSelected),
-            opacity: theme.opacity(isEnabled: state.isEnabled),
-            spacing: theme.spacing(for: alignment),
+            opacity: state.isEnabled ? 1 : theme.dims.dim3,
+            spacing: theme.layout.spacing.medium,
             font: theme.typography.body1)
-    }
-}
-
-// MARK: - Private Helpers
-private extension Theme {
-    func opacity(isEnabled: Bool) -> CGFloat {
-        return !isEnabled ? self.dims.dim3 : 1
-    }
-
-    func spacing(for alignment: RadioButtonLabelAlignment) -> CGFloat {
-        return alignment == .trailing ? self.layout.spacing.medium : self.layout.spacing.xxxLarge
     }
 }

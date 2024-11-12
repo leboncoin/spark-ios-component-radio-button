@@ -112,18 +112,30 @@ public struct RadioButtonView<ID: Equatable & CustomStringConvertible>: View {
     // MARK: - Content
 
     public var body: some View {
-        Button(action: {
+        button()
+            .opacity(self.viewModel.opacity)
+            .buttonStyle(PressedButtonStyle(isPressed: self.$isPressed))
+            .accessibilityLabel(self.viewModel.label.rightValue ?? RadioButtonAccessibilityIdentifier.radioButton)
+            .accessibilityValue(self.viewModel.id.description)
+            .isEnabledChanged { isEnabled in
+                self.viewModel.set(enabled: isEnabled)
+            }
+    }
+
+    @ViewBuilder
+    private func button() -> some View {
+        var button = Button(action: {
             self.viewModel.set(selected: true)
         }, label: {
             self.buttonAndLabel()
                 .contentShape(Rectangle())
         })
-        .opacity(self.viewModel.opacity)
-        .buttonStyle(PressedButtonStyle(isPressed: self.$isPressed))
-        .accessibilityLabel(self.viewModel.label.rightValue ?? RadioButtonAccessibilityIdentifier.radioButton)
-        .accessibilityValue(self.viewModel.id.description)
-        .isEnabledChanged { isEnabled in
-            self.viewModel.set(enabled: isEnabled)
+
+        if self.viewModel.state.isSelected {
+            button
+                .accessibilityAddTraits(.isSelected)
+        } else {
+            button
         }
     }
 

@@ -23,10 +23,7 @@ final class RadioButtonGroupViewModelTests: XCTestCase {
         let expectation = expectation(description: "Wait for subscriptions to be published")
         expectation.expectedFulfillmentCount = 1
 
-        let publisher = Publishers.Zip(
-            Publishers.Zip4(sut.$sublabelFont, sut.$titleFont, sut.$titleColor, sut.$sublabelColor),
-            Publishers.Zip(sut.$spacing, sut.$labelSpacing)
-        )
+        let publisher = sut.$spacing
 
         publisher.sink { _ in
             expectation.fulfill()
@@ -42,10 +39,7 @@ final class RadioButtonGroupViewModelTests: XCTestCase {
         let expectation = expectation(description: "Wait for subscriptions to be published")
         expectation.expectedFulfillmentCount = 2
 
-        let publisher = Publishers.Zip(
-            Publishers.Zip4(sut.$sublabelFont, sut.$titleFont, sut.$titleColor, sut.$sublabelColor),
-            Publishers.Zip(sut.$spacing, sut.$labelSpacing)
-        )
+        let publisher = sut.$spacing
 
         publisher.sink { _ in
             expectation.fulfill()
@@ -57,24 +51,8 @@ final class RadioButtonGroupViewModelTests: XCTestCase {
         wait(for: [expectation], timeout: 0.1)
     }
 
-    func test_intent_change() {
-        // Given
-        let sut = sut(intent: .basic)
-        let expectation = expectation(description: "Wait for sublabel color to be published")
-        expectation.expectedFulfillmentCount = 2
-
-        sut.$sublabelColor.sink { _ in
-            expectation.fulfill()
-        }
-        .store(in: &self.subscriptions)
-
-        sut.intent = .alert
-
-        wait(for: [expectation], timeout: 0.1)
-    }
-
     // MARK: - Private helpers
-    private func sut(intent: RadioButtonIntent) -> RadioButtonGroupViewModel<Void> {
+    private func sut(intent: RadioButtonIntent) -> RadioButtonGroupViewModel {
         let useCase = RadioButtonGetGroupColorUseCaseableGeneratedMock()
         useCase.executeWithColorsAndIntentReturnValue = ColorTokenGeneratedMock.random()
         let theme = ThemeGeneratedMock.mocked()
@@ -82,7 +60,6 @@ final class RadioButtonGroupViewModelTests: XCTestCase {
         return .init(
             theme: theme,
             intent: intent,
-            content: (),
             useCase: useCase
         )
     }
