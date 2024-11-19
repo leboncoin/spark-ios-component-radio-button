@@ -77,7 +77,7 @@ final class RadioButtonToggleUIView: UIView {
         if self.isPressed {
             let haloPath = UIBezierPath.circle(arcCenter: centerPoint, radius: (rect.width / 2 - haloWidth / 2))
             haloPath.lineWidth = haloWidth
-            ctx.setStrokeColor(haloColor.cgColor)
+            ctx.setStrokeColor(haloColor.resolvedColor(with: self.traitCollection).cgColor)
             haloPath.stroke()
         }
 
@@ -85,14 +85,14 @@ final class RadioButtonToggleUIView: UIView {
         let toggleWidth = rect.width - (haloWidth * 2)
         let togglePath = UIBezierPath.circle(arcCenter: centerPoint, radius: (toggleWidth / 2 - innerBorderWidth / 2))
         togglePath.lineWidth = innerBorderWidth
-        ctx.setStrokeColor(buttonColor.cgColor)
+        ctx.setStrokeColor(buttonColor.resolvedColor(with: self.traitCollection).cgColor)
         togglePath.stroke()
 
         if fillColor != .clear {
             let fillSize = (rect.width - haloWidth * 2) / 2
             let fillPath = UIBezierPath.circle(arcCenter: centerPoint, radius: fillSize / 2)
 
-            ctx.setFillColor(fillColor.cgColor)
+            ctx.setFillColor(fillColor.resolvedColor(with: self.traitCollection).cgColor)
             fillPath.fill()
         }
     }
