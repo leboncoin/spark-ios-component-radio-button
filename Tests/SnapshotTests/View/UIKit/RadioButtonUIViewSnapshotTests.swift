@@ -1,6 +1,6 @@
 //
 //  RadioButtonUIViewSnapshotTests.swift
-//  SparkRadioButton
+//  SparkComponentRadioButton
 //
 //  Created by louis.borlee on 21/10/2024.
 //  Copyright © 2024 Leboncoin. All rights reserved.
@@ -8,7 +8,7 @@
 
 import XCTest
 import UIKit
-@testable import SparkRadioButton
+@testable import SparkComponentRadioButton
 @testable import SparkTheme
 @testable import SparkTheming
 @_spi(SI_SPI) @testable import SparkCommon

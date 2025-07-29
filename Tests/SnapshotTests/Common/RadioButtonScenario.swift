@@ -1,13 +1,13 @@
 //
 //  RadioButtonScenario.swift
-//  SparkRadioButton
+//  SparkComponentRadioButton
 //
 //  Created by louis.borlee on 21/10/2024.
 //  Copyright © 2024 Leboncoin. All rights reserved.
 //
 
 import Foundation
-@testable import SparkRadioButton
+@testable import SparkComponentRadioButton
 @_spi(SI_SPI) @testable import SparkCommonSnapshotTesting
 
 enum RadioButtonScenario: String {

@@ -1,6 +1,6 @@
 //
 //  RadioButtonAccessibilityIdentifier.swift
-//  SparkRadioButton
+//  SparkComponentRadioButton
 //
 //  Created by michael.zimmermann on 14.04.23.
 //  Copyright © 2023 Leboncoin. All rights reserved.

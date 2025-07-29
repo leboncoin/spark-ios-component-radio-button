@@ -1,12 +1,12 @@
 //
 //  RadioButtonUIItemTests.swift
-//  SparkRadioButtonTests
+//  SparkComponentRadioButtonTests
 //
 //  Created by michael.zimmermann on 31.08.23.
 //  Copyright © 2023 Leboncoin. All rights reserved.
 //
 
-@testable import SparkRadioButton
+@testable import SparkComponentRadioButton
 import XCTest
 
 final class RadioButtonUIItemTests: XCTestCase {
