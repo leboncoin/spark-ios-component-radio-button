@@ -5,18 +5,18 @@ import PackageDescription
 
 // swiftlint:disable all
 let package = Package(
-    name: "SparkRadioButton",
+    name: "SparkComponentRadioButton",
     platforms: [
         .iOS(.v16)
     ],
     products: [
         .library(
-            name: "SparkRadioButton",
-            targets: ["SparkRadioButton"]
+            name: "SparkComponentRadioButton",
+            targets: ["SparkComponentRadioButton"]
         ),
         .library(
-            name: "SparkRadioButtonTesting",
-            targets: ["SparkRadioButtonTesting"]
+            name: "SparkComponentRadioButtonTesting",
+            targets: ["SparkComponentRadioButtonTesting"]
         )
     ],
     dependencies: [
@@ -33,7 +33,7 @@ let package = Package(
     ],
     targets: [
         .target(
-            name: "SparkRadioButton",
+            name: "SparkComponentRadioButton",
             dependencies: [
                 .product(
                     name: "SparkCommon",
@@ -47,9 +47,9 @@ let package = Package(
             path: "Sources/Core"
         ),
         .target(
-            name: "SparkRadioButtonTesting",
+            name: "SparkComponentRadioButtonTesting",
             dependencies: [
-                "SparkRadioButton",
+                "SparkComponentRadioButton",
                 .product(
                     name: "SparkCommon",
                     package: "spark-ios-common"
@@ -70,10 +70,10 @@ let package = Package(
             path: "Sources/Testing"
         ),
         .testTarget(
-            name: "SparkRadioButtonUnitTests",
+            name: "SparkComponentRadioButtonUnitTests",
             dependencies: [
-                "SparkRadioButton",
-                "SparkRadioButtonTesting",
+                "SparkComponentRadioButton",
+                "SparkComponentRadioButtonTesting",
                 .product(
                     name: "SparkCommonTesting",
                     package: "spark-ios-common"
@@ -86,10 +86,10 @@ let package = Package(
             path: "Tests/UnitTests"
         ),
         .testTarget(
-            name: "SparkRadioButtonSnapshotTests",
+            name: "SparkComponentRadioButtonSnapshotTests",
             dependencies: [
-                "SparkRadioButton",
-                "SparkRadioButtonTesting",
+                "SparkComponentRadioButton",
+                "SparkComponentRadioButtonTesting",
                 .product(
                     name: "SparkCommonSnapshotTesting",
                     package: "spark-ios-common"
