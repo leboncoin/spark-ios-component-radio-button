@@ -31,7 +31,7 @@ public final class RadioButtonUIView<ID: Equatable & CustomStringConvertible>: U
 
     // MARK: - Public Properties
     /// The general theme
-    public var theme: Theme {
+    public var theme: any Theme {
         get {
             return self.viewModel.theme
         }
@@ -218,7 +218,7 @@ public final class RadioButtonUIView<ID: Equatable & CustomStringConvertible>: U
     /// - groupState: the state of the radiobutton group
     @available(*, deprecated, message: "Please use init with intent instead.")
     public convenience init(
-        theme: Theme,
+        theme: any Theme,
         id: ID,
         label: NSAttributedString,
         selectedID: Binding<ID?>,
@@ -247,7 +247,7 @@ public final class RadioButtonUIView<ID: Equatable & CustomStringConvertible>: U
     /// - isSelected: Bool, defining whether the radiobutton is selected or not.
     /// - labelAlignment: the alignment of the label according to the toggle
     public convenience init(
-        theme: Theme,
+        theme: any Theme,
         intent: RadioButtonIntent,
         id: ID,
         label: NSAttributedString,
@@ -278,7 +278,7 @@ public final class RadioButtonUIView<ID: Equatable & CustomStringConvertible>: U
     /// - selectedID: A binding which is triggered when the radio button is selected
     /// - labelAlignment: the alignment of the label according to the toggle
     public convenience init(
-        theme: Theme,
+        theme: any Theme,
         intent: RadioButtonIntent = .basic,
         id: ID,
         label: NSAttributedString,

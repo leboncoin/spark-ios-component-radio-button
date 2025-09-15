@@ -70,7 +70,7 @@ public struct RadioButtonView<ID: Equatable & CustomStringConvertible>: View {
     ///   - selectedID: A binding to which the id of the radio button will be assigned when selected.
     ///   - state: The current state, default value is `.enabled`
     ///   - labelPostion: The position of the label according to the radio button toggle. Default is `right`
-    public init(theme: Theme,
+    public init(theme: any Theme,
                 intent: RadioButtonIntent = .basic,
                 id: ID,
                 label: String,
@@ -87,7 +87,7 @@ public struct RadioButtonView<ID: Equatable & CustomStringConvertible>: View {
     }
 
     @available(*, deprecated, message: "Use init with intent instead.")
-    public init(theme: Theme,
+    public init(theme: any Theme,
                 id: ID,
                 label: String,
                 selectedID: Binding<ID?>,
@@ -125,7 +125,7 @@ public struct RadioButtonView<ID: Equatable & CustomStringConvertible>: View {
 
     @ViewBuilder
     private func button() -> some View {
-        var button = Button(action: {
+        let button = Button(action: {
             self.viewModel.set(selected: true)
         }, label: {
             self.buttonAndLabel()
