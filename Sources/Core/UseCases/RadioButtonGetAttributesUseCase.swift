@@ -10,7 +10,7 @@ import Foundation
 import SparkTheming
 
 protocol RadioButtonGetAttributesUseCaseable {
-    func execute(theme: Theme,
+    func execute(theme: any Theme,
                  intent: RadioButtonIntent,
                  state: RadioButtonStateAttribute,
                  alignment: RadioButtonLabelAlignment
@@ -18,12 +18,12 @@ protocol RadioButtonGetAttributesUseCaseable {
 }
 
 struct RadioButtonGetAttributesUseCase: RadioButtonGetAttributesUseCaseable {
-    let colorsUseCase: RadioButtonGetColorsUseCaseable
+    let colorsUseCase: any RadioButtonGetColorsUseCaseable
 
-    init(colorsUseCase: RadioButtonGetColorsUseCaseable = RadioButtonGetColorsUseCase()) {
+    init(colorsUseCase: any RadioButtonGetColorsUseCaseable = RadioButtonGetColorsUseCase()) {
         self.colorsUseCase = colorsUseCase
     }
-    func execute(theme: Theme,
+    func execute(theme: any Theme,
                  intent: RadioButtonIntent,
                  state: RadioButtonStateAttribute,
                  alignment: RadioButtonLabelAlignment

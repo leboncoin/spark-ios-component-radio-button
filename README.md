@@ -1,5 +1,7 @@
 # Radio Button
 
+**This repository is deprecated.** Please use the [Selection controls](https://github.com/leboncoin/spark-ios-component-selection-controls/) repository instead.
+
 **Spark** is the [Leboncoin](https://www.leboncoin.fr/)'s _Design System_.
 
 The repository here contains only the **iOS RadioButton** for _SwiftUI_ and _UIKit_.

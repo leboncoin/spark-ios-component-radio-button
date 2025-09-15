@@ -23,6 +23,7 @@ private enum Constants {
 /// The color of the view is determined by the state. A possible sublabel is also part of the state.
 /// The value of the radio button is represented by the generic type ID.
 /// When the radio button is selected, it will change the binding value.
+@available(*, deprecated, message: "Use SparkUIRadioButton instead !")
 public final class RadioButtonUIView<ID: Equatable & CustomStringConvertible>: UIControl {
 
     // MARK: - Injected Properties
@@ -30,7 +31,7 @@ public final class RadioButtonUIView<ID: Equatable & CustomStringConvertible>: U
 
     // MARK: - Public Properties
     /// The general theme
-    public var theme: Theme {
+    public var theme: any Theme {
         get {
             return self.viewModel.theme
         }
@@ -217,7 +218,7 @@ public final class RadioButtonUIView<ID: Equatable & CustomStringConvertible>: U
     /// - groupState: the state of the radiobutton group
     @available(*, deprecated, message: "Please use init with intent instead.")
     public convenience init(
-        theme: Theme,
+        theme: any Theme,
         id: ID,
         label: NSAttributedString,
         selectedID: Binding<ID?>,
@@ -246,7 +247,7 @@ public final class RadioButtonUIView<ID: Equatable & CustomStringConvertible>: U
     /// - isSelected: Bool, defining whether the radiobutton is selected or not.
     /// - labelAlignment: the alignment of the label according to the toggle
     public convenience init(
-        theme: Theme,
+        theme: any Theme,
         intent: RadioButtonIntent,
         id: ID,
         label: NSAttributedString,
@@ -277,7 +278,7 @@ public final class RadioButtonUIView<ID: Equatable & CustomStringConvertible>: U
     /// - selectedID: A binding which is triggered when the radio button is selected
     /// - labelAlignment: the alignment of the label according to the toggle
     public convenience init(
-        theme: Theme,
+        theme: any Theme,
         intent: RadioButtonIntent = .basic,
         id: ID,
         label: NSAttributedString,

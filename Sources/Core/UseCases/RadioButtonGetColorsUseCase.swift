@@ -10,7 +10,7 @@ import SparkTheming
 
 // sourcery: AutoMockable
 protocol RadioButtonGetColorsUseCaseable {
-    func execute(theme: Theme,
+    func execute(theme: any Theme,
                  intent: RadioButtonIntent,
                  isSelected: Bool) -> RadioButtonColors
 }
@@ -31,7 +31,7 @@ struct RadioButtonGetColorsUseCase: RadioButtonGetColorsUseCaseable {
     ///    - isSelected = true, when the radion button is selected, false otherwise.
     ///
     /// - Returns: ``RadioButtonColors`` which contains the various colors of the radio button.
-    func execute(theme: Theme,
+    func execute(theme: any Theme,
                  intent: RadioButtonIntent,
                  isSelected: Bool) -> RadioButtonColors {
         let buttonColor = theme.colors.buttonColor(

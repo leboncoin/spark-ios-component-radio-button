@@ -17,7 +17,7 @@ import UIKit
 
 final class RadioButtonUIViewSnapshotTests: UIKitComponentSnapshotTestCase  {
 
-    private let theme: Theme = SparkTheme.shared
+    private let theme: any Theme = SparkTheme.shared
 
     func test1() {
         self._test(.test1)
