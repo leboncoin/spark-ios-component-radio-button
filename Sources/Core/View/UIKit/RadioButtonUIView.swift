@@ -23,6 +23,7 @@ private enum Constants {
 /// The color of the view is determined by the state. A possible sublabel is also part of the state.
 /// The value of the radio button is represented by the generic type ID.
 /// When the radio button is selected, it will change the binding value.
+@available(*, deprecated, message: "Use SparkUIRadioButton instead !")
 public final class RadioButtonUIView<ID: Equatable & CustomStringConvertible>: UIControl {
 
     // MARK: - Injected Properties

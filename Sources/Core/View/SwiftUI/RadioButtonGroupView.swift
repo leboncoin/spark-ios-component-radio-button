@@ -30,6 +30,7 @@ import SparkTheming
 ///       ]
 ///    }
 ///  ```
+@available(*, deprecated, message: "Use SparkRadioGroup instead !")
 public struct RadioButtonGroupView<ID: Equatable & Hashable & CustomStringConvertible>: View {
 
     // MARK: - Injected properties

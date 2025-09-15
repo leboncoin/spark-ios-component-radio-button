@@ -13,6 +13,7 @@ import SwiftUI
 import SparkTheming
 
 /// RadioButtonGroupView embodies a radio button group and handles
+@available(*, deprecated, message: "Use SparkUIRadioGroup instead !")
 public final class RadioButtonUIGroupView<ID: Equatable & Hashable & CustomStringConvertible>: UIControl {
 
     // MARK: - Private Properties

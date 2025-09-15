@@ -39,6 +39,7 @@ private enum Constants {
 ///  ```
 ///
 ///  An alternative to using ``RadioButtonViews`` is to use the ``RadioButtonGroupView``.
+@available(*, deprecated, message: "Use SparkRadioButton instead !")
 public struct RadioButtonView<ID: Equatable & CustomStringConvertible>: View {
 
     // MARK: - Injected Properties
