@@ -50,15 +50,6 @@ final class RadioButtonGetGroupColorUseCaseTests: XCTestCase {
         XCTAssertEqual(colorToken.color, colors.feedback.success.color)
     }
 
-    func test_basic() {
-        // When
-        let colorToken = sut.execute(colors: colors, intent: .basic)
-
-        // Then
-        XCTAssertEqual(colorToken.uiColor, colors.basic.basic.uiColor)
-        XCTAssertEqual(colorToken.color, colors.basic.basic.color)
-    }
-
     func test_accent() {
         // When
         let colorToken = sut.execute(colors: colors, intent: .accent)

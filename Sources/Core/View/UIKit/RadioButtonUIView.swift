@@ -279,7 +279,7 @@ public final class RadioButtonUIView<ID: Equatable & CustomStringConvertible>: U
     /// - labelAlignment: the alignment of the label according to the toggle
     public convenience init(
         theme: any Theme,
-        intent: RadioButtonIntent = .basic,
+        intent: RadioButtonIntent = .support,
         id: ID,
         label: NSAttributedString,
         selectedID: Binding<ID?>,

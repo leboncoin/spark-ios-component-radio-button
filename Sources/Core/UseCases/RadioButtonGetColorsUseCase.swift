@@ -59,70 +59,64 @@ private extension Colors {
 
     private func selectedColor(intent: RadioButtonIntent) -> any ColorToken {
         switch intent {
-        case .basic:
-            return self.basic.basic
-        case .support:
-            return self.support.support
+        case .accent:
+            return self.accent.accent
         case .alert:
             return self.feedback.alert
         case .danger:
             return self.feedback.error
         case .info:
             return self.feedback.info
-        case .neutral:
-            return self.feedback.neutral
-        case .accent:
-            return self.accent.accent
         case .main:
             return self.main.main
+        case .neutral:
+            return self.feedback.neutral
         case .success:
             return self.feedback.success
+        case .support:
+            return self.support.support
         }
     }
 
     func surfaceColor(intent: RadioButtonIntent) -> any ColorToken {
         switch intent {
-        case .basic:
-            return self.basic.onBasic
-        case .support:
-            return self.support.onSupport
+        case .accent:
+            return self.accent.onAccent
         case .alert:
             return self.feedback.onAlert
         case .danger:
             return self.feedback.onError
         case .info:
             return self.feedback.onInfo
-        case .neutral:
-            return self.feedback.onNeutral
-        case .accent:
-            return self.accent.onAccent
         case .main:
             return self.main.onMain
+        case .neutral:
+            return self.feedback.onNeutral
         case .success:
             return self.feedback.onSuccess
+        case .support:
+            return self.support.onSupport
         }
     }
 
     func haloColor(intent: RadioButtonIntent) -> any ColorToken {
         switch intent {
-        case .basic:
-            return self.basic.basicContainer
         case .accent:
             return self.accent.accentContainer
         case .alert:
             return self.feedback.alertContainer
-        case .info:
-            return self.feedback.infoContainer
-        case .support:
-            return self.support.supportContainer
         case .danger:
             return self.feedback.errorContainer
-        case .neutral:
-            return self.feedback.neutralContainer
+        case .info:
+            return self.feedback.infoContainer
         case .main:
             return self.main.mainContainer
+        case .neutral:
+            return self.feedback.neutralContainer
         case .success:
             return self.feedback.successContainer
+        case .support:
+            return self.support.supportContainer
         }
     }
 }

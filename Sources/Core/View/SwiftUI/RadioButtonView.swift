@@ -71,7 +71,7 @@ public struct RadioButtonView<ID: Equatable & CustomStringConvertible>: View {
     ///   - state: The current state, default value is `.enabled`
     ///   - labelPostion: The position of the label according to the radio button toggle. Default is `right`
     public init(theme: any Theme,
-                intent: RadioButtonIntent = .basic,
+                intent: RadioButtonIntent = .support,
                 id: ID,
                 label: String,
                 selectedID: Binding<ID?>,
@@ -95,7 +95,7 @@ public struct RadioButtonView<ID: Equatable & CustomStringConvertible>: View {
                 labelPosition: RadioButtonLabelPosition = .right) {
         let viewModel = RadioButtonViewModel(
             theme: theme,
-            intent: .basic,
+            intent: .support,
             id: id,
             label: .right(label),
             selectedID: selectedID,

@@ -9,14 +9,13 @@
 import Foundation
 
 public enum RadioButtonIntent: String, CaseIterable {
-    case basic
-    case support
-    case success
+    case accent
     case alert
     case danger
     case info
-    case neutral
-    case accent
     case main
+    case neutral
+    case success
+    case support
 }
 
