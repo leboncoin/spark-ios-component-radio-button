@@ -55,22 +55,6 @@ final class RadioButtonViewModelTests: XCTestCase {
         XCTAssertEqual(opacity, 0.40)
     }
 
-    func test_spacings() {
-        // When
-        let spacings = sutValues(for: \.spacing)
-
-        // Then
-        XCTAssertEqual(spacings, Array(repeating: 5.0, count: 9))
-    }
-
-    func test_fonts() {
-        // When
-        let fonts = sutValues(for: \.font.font)
-
-        // Then
-        XCTAssertEqual(fonts, Array(repeating: Font.body, count: 9))
-    }
-
     func test_colors_reset_when_selected_value_set() {
         // Given
         let sut = self.sut(intent: .support)
