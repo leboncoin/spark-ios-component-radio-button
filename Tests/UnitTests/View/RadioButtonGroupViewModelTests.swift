@@ -19,7 +19,7 @@ final class RadioButtonGroupViewModelTests: XCTestCase {
     // MARK: - Tests
     func test_expect_all_values_published_on_setup() {
         // Given
-        let sut = sut(intent: .basic)
+        let sut = sut(intent: .support)
         let expectation = expectation(description: "Wait for subscriptions to be published")
         expectation.expectedFulfillmentCount = 1
 
@@ -35,7 +35,7 @@ final class RadioButtonGroupViewModelTests: XCTestCase {
 
     func test_theme_change() {
         // Given
-        let sut = sut(intent: .basic)
+        let sut = sut(intent: .support)
         let expectation = expectation(description: "Wait for subscriptions to be published")
         expectation.expectedFulfillmentCount = 2
 

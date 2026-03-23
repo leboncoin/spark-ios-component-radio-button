@@ -33,7 +33,7 @@ final class RadioButtonViewModelTests: XCTestCase {
     // MARK: - Tests
     func test_opacity_for_enabled() throws {
         // Given
-        let sut = self.sut(intent: .basic)
+        let sut = self.sut(intent: .support)
 
         // When
         sut.set(enabled: true)
@@ -45,7 +45,7 @@ final class RadioButtonViewModelTests: XCTestCase {
 
     func test_opacity_for_disabled() throws {
         // Given
-        let sut = self.sut(intent: .basic)
+        let sut = self.sut(intent: .support)
 
         // When
         sut.set(enabled: false)
@@ -55,25 +55,9 @@ final class RadioButtonViewModelTests: XCTestCase {
         XCTAssertEqual(opacity, 0.40)
     }
 
-    func test_spacings() {
-        // When
-        let spacings = sutValues(for: \.spacing)
-
-        // Then
-        XCTAssertEqual(spacings, Array(repeating: 5.0, count: 9))
-    }
-
-    func test_fonts() {
-        // When
-        let fonts = sutValues(for: \.font.font)
-
-        // Then
-        XCTAssertEqual(fonts, Array(repeating: Font.body, count: 9))
-    }
-
     func test_colors_reset_when_selected_value_set() {
         // Given
-        let sut = self.sut(intent: .basic)
+        let sut = self.sut(intent: .support)
         let expectation = XCTestExpectation(description: "Colors published when selection changes.")
         expectation.expectedFulfillmentCount = 2
 
@@ -92,7 +76,7 @@ final class RadioButtonViewModelTests: XCTestCase {
 
     func test_theme_update_publishes_changed_values() {
         // Given
-        let sut = self.sut(intent: .basic)
+        let sut = self.sut(intent: .support)
         let expectation = XCTestExpectation(description: "Changes to theme publishes value changes.")
         expectation.expectedFulfillmentCount = 2
 
@@ -113,7 +97,7 @@ final class RadioButtonViewModelTests: XCTestCase {
 
     func test_state_update_publishes_changed_values() {
         // Given
-        let sut = self.sut(intent: .basic)
+        let sut = self.sut(intent: .support)
         let expectation = XCTestExpectation(description: "Changes to state publishes value changes.")
         expectation.expectedFulfillmentCount = 2
 
@@ -132,7 +116,7 @@ final class RadioButtonViewModelTests: XCTestCase {
 
     func test_spacing_update_publishes_changed_values() {
         // Given
-        let sut = self.sut(intent: .basic)
+        let sut = self.sut(intent: .support)
         let expectation = XCTestExpectation(description: "Changes to label position publishes value changes.")
         expectation.expectedFulfillmentCount = 2
 

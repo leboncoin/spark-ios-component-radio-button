@@ -48,7 +48,7 @@ final class RadioButtonGetAttributesUseCaseTests: TestCase {
         // When
         let givenAttributes = self.sut.execute(
             theme: self.theme,
-            intent: .basic,
+            intent: .support,
             state: .isEnabled,
             alignment: .leading
         )
@@ -67,7 +67,7 @@ final class RadioButtonGetAttributesUseCaseTests: TestCase {
         // When
         let givenAttributes = self.sut.execute(
             theme: self.theme,
-            intent: .basic,
+            intent: .support,
             state: .isEnabled,
             alignment: .trailing
         )
@@ -86,7 +86,7 @@ final class RadioButtonGetAttributesUseCaseTests: TestCase {
         // When
         let givenAttributes = self.sut.execute(
             theme: self.theme,
-            intent: .basic,
+            intent: .support,
             state: .isDisabled,
             alignment: .trailing
         )
