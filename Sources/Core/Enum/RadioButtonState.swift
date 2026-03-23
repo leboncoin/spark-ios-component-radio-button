@@ -14,7 +14,7 @@ public enum RadioButtonGroupState: Equatable, Hashable, CaseIterable {
     case enabled
     case disabled
     case accent
-    case basic
+    case support
 
     case success
     case warning
@@ -27,7 +27,7 @@ extension RadioButtonGroupState {
         case .enabled: return .support
         case .disabled: return .support
         case .accent: return .accent
-        case .basic: return .support
+        case .support: return .support
         case .success: return .success
         case .warning: return .alert
         case .error: return .danger

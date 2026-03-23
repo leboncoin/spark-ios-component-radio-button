@@ -144,7 +144,7 @@ public final class RadioButtonUIGroupView<ID: Equatable & Hashable & CustomStrin
     /// Initializer of the radio button ui group component.
     /// Parameters:
     /// - theme: The current theme.
-    /// - intent: The default intent is `basic`
+    /// - intent: The default intent is `support`
     /// - selectedID: The current selected value of the radio button group.
     /// - items: A list of `RadioButtonUIItem` which represent each item in the radio button group.
     /// - radioButtonLabelPosition: The position of the label in each radio button item according to the toggle. The default value is, that the label is to the `right` of the toggle.
